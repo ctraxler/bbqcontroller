@@ -9,7 +9,8 @@ libraryDependencies ++= Seq(
   javaEbean,
   cache,
   "org.mongodb" % "mongo-java-driver" % "2.12.0",
-  "org.json" % "json" % "20080701"
+  "org.json"%"json"%"20080701",
+  "com.googlecode.json-simple" % "json-simple" % "1.1"
 )     
 
 play.Project.playJavaSettings

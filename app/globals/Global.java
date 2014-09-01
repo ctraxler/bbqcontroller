@@ -33,6 +33,8 @@ public class  Global extends GlobalSettings {
 			JSONParser parser = new JSONParser();
 			try {
 				Object obj = parser.parse(new FileReader("./bbqcontroller.conf"));
+				
+				System.out.println("Found configuration file");
 				JSONObject jsonObject = (JSONObject) obj;
 				
 				jsonDBParms = (JSONObject) jsonObject.get("DB");
@@ -56,9 +58,9 @@ public class  Global extends GlobalSettings {
 		//Create & Init Sensors
 			
 		SensorFactory sensfactory = new SensorFactory();
-		
+		System.out.println("Creating Hardware Environment...");
 		hwenv = sensfactory.CreateHWEnv(jsonADCParms);
-		
+		System.out.println("Hardware Environment created");
 		//Init db
 		
 		

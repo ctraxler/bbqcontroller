@@ -26,6 +26,8 @@ public class SensorFactory {
 				if (controllerJson != null) {
 					
 					boolean value = (Boolean) controllerJson.get("enabled");
+					
+					System.out.println("Controller is enabled");
 			
 					if (value == true) {
 						
@@ -36,8 +38,10 @@ public class SensorFactory {
 							
 							int ch = (Integer) controllerJson.get("SPI-Channel");
 							
+							System.out.println("Creating SPI Controller on channel " + Integer.toString(ch));
+							
 							hwenv.controller = new SPIController(ch);
-						
+							System.out.println("Controller created"); 
 						}		
 						
 						jsonArray = (JSONArray) controllerJson.get("Sensors");
