@@ -23,6 +23,8 @@ public class  Global extends GlobalSettings {
 		
 	@Override
 	public void onStart (Application app){
+
+		Logger.info("Starting application onStart init routines");
 		
 		//Get config parameters
 		
