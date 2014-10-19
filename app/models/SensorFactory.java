@@ -64,6 +64,8 @@ public class SensorFactory {
 								
 								jsonSensor = (JSONObject) jsonArray.get(i);
 								
+								System.out.println("Sensor Config " + i + ": " + jsonSensor.toString());
+								
 								name = (String) jsonSensor.get("name");
 								ch = (Byte) jsonSensor.get("channel");
 								enabled = (Boolean) jsonSensor.get("enabled");
