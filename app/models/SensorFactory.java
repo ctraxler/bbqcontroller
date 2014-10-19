@@ -34,7 +34,7 @@ public class SensorFactory {
 					
 					System.out.println("controllerJson after eating Controller key ==> " + controllerJson);
 					
-					flagEnabled = (Boolean) controller.Json.get("enabled");
+					flagEnabled = (Boolean) controllerJson.get("enabled");
 			
 					if (flagEnabled == true) {
 						
