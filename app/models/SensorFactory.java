@@ -19,21 +19,24 @@ public class SensorFactory {
 			JSONArray jsonArray = null;
 			JSONObject json = null;
 			String str = null;
+			Boolean flagEnabled = false; 
 			
-			System.out.println("controllersArray==> " + controllersArray.toString());
+			System.out.println("controllersArray  ==> " + controllersArray.toString());
 			
 			for (int i=0; i < controllersArray.size(); i++) {
 				controllerJson = (JSONObject) controllersArray.get(i);
 				
 				if (controllerJson != null) {
 					
-					System.out.println("controllerJson==> " + controllerJson);
+					System.out.println("controllerJson ==> " + controllerJson);
 					
-					boolean value = (Boolean) controllerJson.get("enabled");
+					controllerJson = (JSONObject) controllerJson.get("Controller");
 					
-					System.out.println("Controller is enabled");
+					System.out.println("controllerJson after eating Controller key ==> " + controllerJson);
+					
+					flagEnabled = (Boolean) controller.Json.get("enabled");
 			
-					if (value == true) {
+					if (flagEnabled == true) {
 						
 						str = (String) controllerJson.get("Interface");
 						
