@@ -57,7 +57,7 @@ public class SensorFactory {
 							JSONObject jsonSensor = null; 
 							String name = null;
 							byte ch = -1;
-							int enabled = -1;
+							Boolean enabled = false;
 							String method = null;					
 							
 							for (i=0; i < jsonArray.size(); i++) {
@@ -66,7 +66,7 @@ public class SensorFactory {
 								
 								name = (String) jsonSensor.get("name");
 								ch = (Byte) jsonSensor.get("channel");
-								enabled = (Integer) jsonSensor.get("enabled");
+								enabled = (Boolean) jsonSensor.get("enabled");
 								method = (String) jsonSensor.get("Type");
 								AnalogSensor analogSensor = new AnalogSensor(name, ch, enabled, hwenv.controller.MinReading, hwenv.controller.MaxReading, method);
 								hwenv.analogsensors[hwenv.analogsensors.length] = analogSensor;

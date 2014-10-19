@@ -38,7 +38,7 @@ public class AnalogSensor {
 		
 	}
 	
-	public  AnalogSensor (String name, byte ch, int enabled, int low, int high, String methodparm ){
+	public  AnalogSensor (String name, byte ch, boolean enabled, int low, int high, String methodparm ){
 		
 		this.name = name;
 		this.ch = ch;
