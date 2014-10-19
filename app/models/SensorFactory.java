@@ -20,10 +20,14 @@ public class SensorFactory {
 			JSONObject json = null;
 			String str = null;
 			
+			System.out.println("controllersArray==> " + controllersArray.toString());
+			
 			for (int i=0; i < controllersArray.size(); i++) {
 				controllerJson = (JSONObject) controllersArray.get(i);
 				
 				if (controllerJson != null) {
+					
+					System.out.println("controllerJson==> " + controllerJson);
 					
 					boolean value = (Boolean) controllerJson.get("enabled");
 					
