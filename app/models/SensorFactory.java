@@ -57,6 +57,7 @@ public class SensorFactory {
 							JSONObject jsonSensor = null; 
 							String name = null;
 							byte ch = -1;
+							String str = null;
 							Boolean enabled = false;
 							String method = null;					
 							
@@ -68,7 +69,8 @@ public class SensorFactory {
 								
 								name = (String) jsonSensor.get("name");
 								//need to modify as it is not getting casted to byte 
-								ch = (byte) (Byte) jsonSensor.get("channel");
+								str = (String) jsonSensor.get("channel");
+								System.out.println("Enabled info: " + str);
 								enabled = (Boolean) jsonSensor.get("enabled");
 								method = (String) jsonSensor.get("Type");
 								AnalogSensor analogSensor = new AnalogSensor(name, ch, enabled, hwenv.controller.MinReading, hwenv.controller.MaxReading, method);
