@@ -56,7 +56,7 @@ public class SensorFactory {
 						if (jsonArray != null) {
 							JSONObject jsonSensor = null; 
 							String name = null;
-							byte ch = -1;
+							long ch = -1;
 				
 							Boolean enabled = false;
 							String method = null;					
@@ -70,7 +70,7 @@ public class SensorFactory {
 								System.out.println("Sensor Config after eating sensor key: " + jsonSensor.toString());
 								name = (String) jsonSensor.get("name");
 								
-								ch = (byte) (Long) jsonSensor.get("channel");
+								ch = (Long) jsonSensor.get("channel");
 								
 								System.out.println("Enabled info as byte: " + ch);
 								enabled = (Boolean) jsonSensor.get("enabled");
