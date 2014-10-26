@@ -38,10 +38,10 @@ public class AnalogSensor {
 		
 	}
 	
-	public  AnalogSensor (String name, byte ch, boolean enabled, int low, int high, String methodparm ){
+	public  AnalogSensor (String name, long ch, boolean enabled, int low, int high, String methodparm ){
 		
 		this.name = name;
-		this.ch = ch;
+		this.ch = (byte) (long) ch;
 		this.lowReading = low;
 		this.highReading = high;
 		this.currentReading = -1;

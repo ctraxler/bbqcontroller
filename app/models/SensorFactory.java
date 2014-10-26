@@ -70,7 +70,7 @@ public class SensorFactory {
 								System.out.println("Sensor Config after eating sensor key: " + jsonSensor.toString());
 								name = (String) jsonSensor.get("name");
 								
-								ch = (Byte) jsonSensor.get("channel");
+								ch = (byte) (Long) jsonSensor.get("channel");
 								
 								System.out.println("Enabled info as byte: " + ch);
 								enabled = (Boolean) jsonSensor.get("enabled");
