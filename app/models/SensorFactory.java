@@ -57,7 +57,7 @@ public class SensorFactory {
 							JSONObject jsonSensor = null; 
 							String name = null;
 							byte ch = -1;
-							String str1 = null;
+				
 							Boolean enabled = false;
 							String method = null;					
 							
@@ -69,10 +69,9 @@ public class SensorFactory {
 								jsonSensor = (JSONObject) jsonSensor.get("sensor");
 								System.out.println("Sensor Config after eating sensor key: " + jsonSensor.toString());
 								name = (String) jsonSensor.get("name");
-								//need to modify as it is not getting casted to byte 
-								str1 = (String) jsonSensor.get("channel");
+								
 								ch = (Byte) jsonSensor.get("channel");
-								System.out.println("Enabled info as string: " + str1);
+								
 								System.out.println("Enabled info as byte: " + ch);
 								enabled = (Boolean) jsonSensor.get("enabled");
 								method = (String) jsonSensor.get("Type");
