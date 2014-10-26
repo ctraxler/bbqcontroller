@@ -66,11 +66,14 @@ public class SensorFactory {
 								jsonSensor = (JSONObject) jsonArray.get(i);
 								
 								System.out.println("Sensor Config " + i + ": " + jsonSensor.toString());
-								
+								jsonSensor = (JSONObject) jsonSensor.get("sensor");
+								System.out.println("Sensor Config after eating sensor key: " + jsonSensor.toString());
 								name = (String) jsonSensor.get("name");
 								//need to modify as it is not getting casted to byte 
 								str1 = (String) jsonSensor.get("channel");
-								System.out.println("Enabled info: " + str1);
+								ch = (Byte) jsonSensor.get("channel");
+								System.out.println("Enabled info as string: " + str1);
+								System.out.println("Enabled info as byte: " + ch);
 								enabled = (Boolean) jsonSensor.get("enabled");
 								method = (String) jsonSensor.get("Type");
 								AnalogSensor analogSensor = new AnalogSensor(name, ch, enabled, hwenv.controller.MinReading, hwenv.controller.MaxReading, method);
