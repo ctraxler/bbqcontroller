@@ -59,7 +59,9 @@ public class SensorFactory {
 							long ch = -1;
 				
 							Boolean enabled = false;
-							String method = null;					
+							String method = null;
+							
+							ArrayList <AnalogSensor> al = new ArrayList<AnalogSensor>();
 							
 							for (i=0; i < jsonArray.size(); i++) {
 								
@@ -75,10 +77,21 @@ public class SensorFactory {
 								System.out.println("Enabled info as byte: " + ch);
 								enabled = (Boolean) jsonSensor.get("enabled");
 								method = (String) jsonSensor.get("Type");
-								AnalogSensor analogSensor = new AnalogSensor(name, ch, enabled, hwenv.controller.MinReading, hwenv.controller.MaxReading, method);
-								hwenv.analogsensors[hwenv.analogsensors.length] = analogSensor;
+								AnalogSensor analogSensor = new AnalogSensor(name, ch, enabled, SPIController.MinReading, SPIController.MaxReading, method);
+								
+								System.out.println("Analog Sensor Array Length: " + al.size());
+								
+								//Need to rework how to use lists
+								
+								al.add(analogSensor);
+									
 								
 							}	
+							
+							hwenv.analogsensors = new AnalogSensor[al.size()];
+							hwenv.analogsensors = (AnalogSensor[]) al.toArray();
+							                                        
+							                                      
 						}						
 					
 					}
