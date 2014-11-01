@@ -49,7 +49,9 @@ public class SensorFactory {
 						if (str.equals("SPI")) {
 							//we have an SPI interface and need to build the controller
 							
-							int ch = (Integer) controllerJson.get("SPI-Channel");
+							Long l =  (Long) controllerJson.get("SPI-Channel");
+							
+							int ch = l.intValue();
 							
 							System.out.println("Creating SPI Controller on channel " + Integer.toString(ch));
 							
