@@ -38,7 +38,13 @@ public class SensorFactory {
 			
 					if (flagEnabled == true) {
 						
+						System.out.println("Controller is enabled...");
+						
+						
+						
 						str = (String) controllerJson.get("Interface");
+						
+						System.out.println("Interface is: " + str);
 						
 						if (str == "SPI") {
 							//we have an SPI interface and need to build the controller
@@ -81,16 +87,16 @@ public class SensorFactory {
 								
 								System.out.println("Analog Sensor Array Length: " + al.size());
 								
-								//Need to rework how to use lists
+							
 								
 								al.add(analogSensor);
 									
 								
 							}	
 							
-							hwenv.analogsensors = new AnalogSensor[al.size()];
+							
 							hwenv.analogsensors = al.toArray(new AnalogSensor[al.size()]);
-//							hwenv.analogsensors = (AnalogSensor[]) al.toArray();
+
 							
 							                                        							                                      
 						}						
