@@ -46,7 +46,7 @@ public class SensorFactory {
 						
 						System.out.println("Interface is: " + str);
 						
-						if (str == "SPI") {
+						if (str.equals("SPI")) {
 							//we have an SPI interface and need to build the controller
 							
 							int ch = (Integer) controllerJson.get("SPI-Channel");
