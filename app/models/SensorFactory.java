@@ -89,9 +89,10 @@ public class SensorFactory {
 							}	
 							
 							hwenv.analogsensors = new AnalogSensor[al.size()];
-							hwenv.analogsensors = (AnalogSensor[]) al.toArray();
-							                                        
-							                                      
+							hwenv.analogsensors = al.toArray(new AnalogSensor[al.size()]);
+//							hwenv.analogsensors = (AnalogSensor[]) al.toArray();
+							
+							                                        							                                      
 						}						
 					
 					}
