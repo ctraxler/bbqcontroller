@@ -5,10 +5,13 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.UnknownHostException;
+import java.util.Calendar;
+import java.util.Timer;
 
 import play.Application;
 import play.GlobalSettings;
 import play.Logger;
+import models.GetReadingsTimerTask;
 import models.HWEnvironment;
 import models.SensorFactory;
 
@@ -17,9 +20,14 @@ import org.json.simple.JSONArray;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import models.Readings;
+
+
 public class  Global extends GlobalSettings {
 	
 	HWEnvironment hwenv = null;
+	
+	Readings readings = new Readings();
 		
 	@Override
 	public void onStart (Application app){
@@ -65,6 +73,17 @@ public class  Global extends GlobalSettings {
 		System.out.println("Hardware Environment created");
 		//Init db
 		
+		System.out.println(hwenv.analogsensors.length+ " sensors configured...");
+		
+		Timer readingstimer = new Timer();
+		GetReadingsTimerTask grtt = new GetReadingsTimerTask();
+		
+		grtt.initController(hwenv.controller);
+		grtt.initReadings(readings.getCurrentReadings(), readings.getUnsentReadings());
+		
+		grtt.setSessionId(Calendar.getInstance().getTimeInMillis());
+		
+		readingstimer.scheduleAtFixedRate(grtt, 0, 1000);
 		
 		
 	}

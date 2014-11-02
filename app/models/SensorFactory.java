@@ -88,21 +88,13 @@ public class SensorFactory {
 								AnalogSensor analogSensor = new AnalogSensor(name, ch, enabled, SPIController.MinReading, SPIController.MaxReading, method);
 								
 								System.out.println("Analog Sensor Array Length: " + al.size());
-								
-							
-								
-								al.add(analogSensor);
-									
+														
+								al.add(analogSensor);			
 								
 							}	
-							
-							
 							hwenv.analogsensors = al.toArray(new AnalogSensor[al.size()]);
-
-							
 							                                        							                                      
-						}						
-					
+						}											
 					}
 				}
 			}
